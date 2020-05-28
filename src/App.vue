@@ -1,18 +1,51 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <AddNewTimer @addNewTimerName="addNewTimer" />
+    <ul>
+      <li v-for="timer in timersList" :key="timer.id">{{ timer.name }} <Timer />
+        <input type="button" value="Delete" @click="onDelete(timer.id)" />
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AddNewTimer from './components/AddNewTimer'
+import Timer from './components/Timer'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    AddNewTimer,
+    Timer
+  },
+  data: () =>({
+    timersList: [
+    {
+      id:'1',
+      name: 'first timer',
+      time: '00:00:05'
+    },
+    {
+      id:'2',
+      name: 'Second timer',
+      time: '00:10:05'
+    }
+  ],
+  }),
+  methods: {
+  onDelete(id) {
+    this.timersList = this.timersList.filter(timer => timer.id !== id);
+  },
+  addNewTimer(name){
+    const newTimer ={
+      id: (this.timersList.length+1).toString(),
+      name: name,
+      time: ''
+    }
+    this.timersList.push(newTimer);
+  },
+},
 }
 </script>
 
