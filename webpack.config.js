@@ -2,13 +2,15 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   mode: 'development',
-  entry: './src/assets/js/index.js',
+  entry: './src/main.js',
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/dist/'
   },
   optimization: {
     splitChunks: {
@@ -19,10 +21,11 @@ module.exports = {
     port: 3000,
   },
   plugins: [
-    new HTMLWebpackPlugin({
-      template: './public/index.html',
-    }),
     new CleanWebpackPlugin(),
+    new VueLoaderPlugin(),
+    new HTMLWebpackPlugin({
+      template: './public/index.html'
+    }),
     new MiniCssExtractPlugin({
       filename: 'style.[contenthash].css',
       path: path.resolve(__dirname, 'dist'),
@@ -32,8 +35,14 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        use: {
+          loader: 'vue-loader',
+        },
       },
+      // {
+      //   test: /\.js$/,
+      //   loader: 'babel-loader'
+      // },
       {
         test: /\.scss$/,
         use: [
@@ -68,5 +77,12 @@ module.exports = {
         use: ['file-loader'],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.vue','.js'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': path.resolve(__dirname, 'src/components'),
+    }
   },
 };

@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <AddNewTimer @addNewTimerName="addNewTimer" />
-    <ul>
-      <li v-for="timer in timersList" :key="timer.id">{{ timer.name }} <Timer :id="timer.id" :timeArray="timer.time" :isActive="timer.active" @removeTimer="deleteTimer"/></li>
-    </ul>
+    <hr>
+    <table class="timers__table">
+      <tr class="timer__item" v-for="timer in timersList" :key="timer.id"><Timer :id="timer.id" :timerName="timer.name" :timeArray="timer.time" :isActive="timer.active" @removeTimer="deleteTimer"/>
+      </tr>
+    </table>
+
   </div>
 </template>
 
@@ -53,7 +56,7 @@ export default {
       name = this.$moment().format('DD-MM-YYYY');
     }
     const newTimer ={
-      id: (this.timersList.length+1).toString(),
+      id: Math.random().toFixed(5).slice(2),
       name: name,
       time: [0,0,0],
       active: true,
@@ -71,6 +74,33 @@ watch:{
 }
 </script>
 
+<style lang="scss" scoped>
+
+.timers__table {
+  width: 100%;
+}
+
+.timer__item {
+  width: 100%;
+  margin-top: 40px;
+}
+
+table{
+  border-collapse:separate;
+  border-spacing: 0 40px;
+}
+
+tr {
+
+}
+
+hr {
+  background: #E7E8EA;
+  margin-bottom: -10px;
+}
+
+</style>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -79,5 +109,8 @@ watch:{
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  height: 420px;
+  width: 770px;
+  margin: 0 auto;
 }
 </style>
