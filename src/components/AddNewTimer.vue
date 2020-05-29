@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" v-model="newTimerName" placeholder="Timer name">
+    <input type="text" v-model="newTimerName" placeholder="Timer name" @keyup.enter="addTimer">
     <input type="button" value="Create Timer" @click="addTimer">
   </div>
 </template>
@@ -13,9 +13,6 @@ export default {
   }),
   methods: {
     addTimer(){
-      if (this.newTimerName.length === 0){
-        // this.newTimerName = new moment()
-      }
       this.$emit('addNewTimerName',this.newTimerName);
       this.newTimerName='';
     }
