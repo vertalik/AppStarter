@@ -21,13 +21,9 @@
 </template>
 
 <script>
-// import MenuIcon from 'vue-material-design-icons/Menu.vue';
 
 export default {
   name: 'Timer',
-  // components:{
-  //   MenuIcon
-  // },
   props:['id','timeArray','isActive','timerName'],
   data: () => ({
     seconds: 0,
@@ -114,6 +110,7 @@ export default {
 .timer__container {
   width: 100%;
   display: flex;
+  align-items: center;
 }
 
 .timer-name{

@@ -23,9 +23,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
-    new HTMLWebpackPlugin({
-      template: './public/index.html'
-    }),
+    // new HTMLWebpackPlugin({
+    //   template: './public/index.html'
+    // }),
     new MiniCssExtractPlugin({
       filename: 'style.[contenthash].css',
       path: path.resolve(__dirname, 'dist'),

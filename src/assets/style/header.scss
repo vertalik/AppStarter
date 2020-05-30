@@ -1,3 +1,99 @@
-h1 {
-  color: blue;
+header {
+  padding-top: 25px;
+  height: 100vh;
+  background: url('../img/bg.jpg') no-repeat center top / cover;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 76vw;
+}
+
+.nav__items {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    padding: 10px 15px;
+    background-color: $white;
+    border-radius: 6px;
+    color: $dark;
+    text-transform: uppercase;
+    font-family: $fonts-bold;
+    font-size: 0.875rem;
+  }
+}
+
+.logo__title {
+  font-size: 1.25rem;
+  color: $white;
+  font-family: $fonts-bold;
+}
+
+.company-logo {
+  width: 90px;
+  height: 90px;
+
+  img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+
+  }
+}
+
+.main-section {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.intro {
+  width: 50%;
+  padding-bottom: 150px;
+  margin-right: 95px;
+}
+
+.intro__text {
+  font-size: 2.188rem;
+  margin: 38px 0;
+  line-height: 1.5;
+
+  span {
+    font-family: $fonts-bold;
+  }
+}
+
+.btn {
+  font-size: 1.063rem;
+  padding: 14px 15px;
+  border-style: none;
+  font-family: $fonts-bold;
+}
+
+.download__btn {
+  background: linear-gradient(163.33deg, #FF8E64 0%, #FFE641 100%);
+  border-radius: 6px;
+  color: $white;
+  margin-right: 20px;
+}
+
+.watch__btn {
+  background: $white;
+  border-radius: 6px;
+}
+
+
+.tablet__container {
+  margin-top: 75px;
+  width: 470px;
+  height: 708px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }

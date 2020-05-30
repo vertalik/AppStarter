@@ -1,7 +1,8 @@
-import './assets/style/main.scss'
+import './assets/style/style.scss'
 import Vue from 'vue'
 import App from './App.vue'
 import moment from 'moment';
+import '@mdi/font/css/materialdesignicons.css'
 
 Vue.prototype.$moment = moment;
 

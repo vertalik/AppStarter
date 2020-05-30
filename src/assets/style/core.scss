@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: $fonts-normal;
+  color: $white;
+}
+
+button {
+  cursor: pointer;
+  border-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: $white;
+}
+
+.content__wrapper {
+  max-width: 1165px;
+  margin: 0 auto;
+}

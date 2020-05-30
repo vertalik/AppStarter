@@ -1,0 +1,41 @@
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__logo {
+  color: $dark;
+}
+
+.copyright__author {
+  color: $silver;
+  font-size: 0.688rem;
+    .heart  {
+      color: $red;
+    }
+}
+
+.year {
+  @extend .copyright__author;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.author {
+  font-family: $fonts-bold;
+  color: $dark;
+}
+
+.social-icon {
+  padding: 5px 10px ;
+  font-size: 1.3rem;
+  color: $social-media-color;
+  border: 1px solid #E7E8EA;
+  border-radius: 0px 6px 6px 0px;
+  cursor: pointer;
+}
+
+.social-media {
+  padding: 25px 0 45px 0;
+}

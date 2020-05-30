@@ -8,12 +8,122 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <h1>Timer</h1>
-    <i class="mdi-bone"></i>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <header>
+      <div class="content__wrapper">
+        <div class="head">
+          <h2 class="logo__title">AppStarter</h2>
+          <nav class="nav__items">
+            <a href="#">Features</a>
+            <a href="#">Video Tour</a>
+            <a href="#">Reviews</a>
+            <a href="#">Pricing</a>
+            <button>Get it free</button>
+          </nav>
+        </div>
+      <section class="main-section">
+        <div class="intro">
+          <div class="company-logo">
+            <img src="./img/logo.png" alt="Company logo"/>
+          </div>
+          <p class="intro__text"><span>AppStarter.</span> Best landing page <br>for web and mobile apps </p>
+          <div class="intro-btn__container">
+            <button class="btn download__btn">Downloand Now</button>
+            <button class="btn watch__btn">Watch Video</button>
+          </div>
+        </div>
+        <div class="tablet__container">
+          <img src="./img/tablet.png" alt="Tablet image" />
+        </div>
+      </section>
+    </div>
+    </header>
+    <main>
+      <section class="plan">
+        <div class="content__wrapper">
+          <div class="plan__container">
+            <div class="licenses-element__wrapper">
+              <h2 class="licenses__title"><span>Choose</span> your plan</h2>
+              <p class="licenses__text">
+                This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise, she lost sight of her in a moment, and found herself walking.
+              </p>
+              <p class="licenses__number">
+                <span>Select the number of licenses:</span>
+                <select name="licenses-number" id="lic-number">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </p>
+              <p class="promo-code">Enter the promo code:</p>
+              <div class="promo-code__container">
+                <input class="promo-code__input" type="text" placeholder="Promo code">
+                <button class="promo-code__btn">Apply</button>
+              </div>
+            </div>
+            <div class="professional-licenses__wrapper">
+              <div class="professional-licenses__container">
+                <div class="professional-licenses__title__wrapper">
+                  <h3 class="professional__title">Professional</h3>
+                </div>
+                <span class="professional-licenses__cost">10$</span>
+                <ul class="professional-licenses__list-items">
+                  <li class="professional-licenses__item"><span class="mdi mdi-check"></span>Hundreds of elements</li>
+                  <li class="professional-licenses__item"><span class="mdi mdi-check"></span>Style guide</li>
+                  <li class="professional-licenses__item"><span class="mdi mdi-check"></span>160 icons included</li>
+                  <li class="professional-licenses__item"><span class="mdi mdi-check"></span>Sketch files</li>
+                  <li class="professional-licenses__item"><span class="mdi mdi-check"></span>Commercial licence</li>
+                </ul>
+                <button class="professional-licenses__btn">Buy Now</button>
+              </div>
+            </div>
+            <div class="free-licenses__wrapper">
+              <div class="free-licenses__container">
+                <div class="free-licenses__title__wrapper">
+                  <h3 class="free-licenses__title">Starter</h3>
+                </div>
+                <span class="free-licenses__cost">Free</span>
+                <ul class="free-licenses__list-items">
+                  <li class="free-licenses__item"><span class="mdi mdi-check"></span>Hundreds of elements</li>
+                  <li class="free-licenses__item"><span class="mdi mdi-check"></span>Style guide</li>
+                  <li class="free-licenses__item"><span class="mdi mdi-check"></span>30 icons included</li>
+                  <li class="free-licenses__item"><span class="mdi mdi-check"></span>Personal licence</li>
+                </ul>
+                <button class="free-licenses__btn">Get Free</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="timer__section">
+        <div class="content__wrapper">
+          <div class="timer__section__head">
+            <h2 class="timer__section__title"><span>Why</span> do we use it?</h2>
+            <p class="timer__section__text">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise, she lost sight of her in a moment.</p>
+          </div>
+          <div id="app"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+     <div class="content__wrapper">
+       <div class="footer__container">
+        <h2 class="logo__title footer__logo">AppStarter</h2>
+        <div class="copyright">
+          <p class="copyright__author">Created with <span class="mdi mdi-heart heart"></span> by <span class="author">Sergey Azovskiy</span></p>
+          <p class="year">© AppStarter, 2017</p>
+        </div>
+        <div class="social-media">
+          <span class="mdi mdi-twitter social-icon"></span>
+          <span class="mdi mdi-facebook social-icon"></span>
+          <span class="mdi mdi-instagram social-icon"></span>
+        </div>
+       </div>
+     </div>
+    </footer>
+
     <!-- built files will be auto injected -->
   </body>
 </html>
