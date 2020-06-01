@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "start": "webpack-dev-server --mode development --open",
-    "dev": "webpack --mode development",
+    "w-start": "webpack-dev-server --mode development --open",
+    "w-dev": "webpack --mode development",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
