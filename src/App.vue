@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <AddNewTimer @addNewTimerName="addNewTimer" />
-    <hr>
+    <div class="app-timer__wrapper">
+      <AddNewTimer @addNewTimerName="addNewTimer" />
     <table class="timers__table">
       <tr class="timer__item" v-for="timer in timersList" :key="timer.id"><Timer :id="timer.id" :timerName="timer.name" :timeArray="timer.time" :isActive="timer.active" @removeTimer="deleteTimer"/>
       </tr>
     </table>
-
+    </div>  
   </div>
 </template>
 
@@ -76,6 +76,10 @@ watch:{
 
 <style lang="scss" scoped>
 
+.app-timer__wrapper {
+  box-shadow: 0px 12px 24px rgba(40, 43, 49, 0.16);
+}
+
 .timers__table {
   width: 100%;
 }
@@ -90,27 +94,35 @@ table{
   border-spacing: 0 40px;
 }
 
-tr {
-
-}
-
-hr {
-  background: #E7E8EA;
-  margin-bottom: -10px;
-}
-
 </style>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Nunito Sans Regular', sans-serif;
+  font-size: 1.063rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  height: 420px;
-  width: 770px;
+  max-height: 435px;
+  max-width: 770px;
+  background: #fff;
   margin: 0 auto;
+  border-radius: 12px;
+  overflow-y: auto ;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #676C75;
+  border-radius: 10px;
 }
 </style>
