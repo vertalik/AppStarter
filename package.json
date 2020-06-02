@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "webpack-build": "webpack --mode production"
+    "webpack-build": "webpack --mode production",
+    "webpack-dev": "webpack --mode development",
+    "webpack-server": "webpack-dev-server --mode development --open"
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.1",

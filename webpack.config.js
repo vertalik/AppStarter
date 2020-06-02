@@ -43,6 +43,10 @@ module.exports = {
   devServer: {
     port: 4200,
     hot: isDev,
+    publicPath: '/',
+    watchOptions: {
+      poll: true
+  }
   },
   plugins: [
     new VueLoaderPlugin(),
