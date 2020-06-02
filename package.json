@@ -5,9 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "w-dev": "cross-env NODE_ENV=development webpack"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.10.1",
     "core-js": "^3.6.5",
     "css-reset-and-normalize": "^2.1.0",
     "moment": "^2.26.0",
@@ -16,6 +18,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-proposal-decorators": "^7.10.1",
+    "@babel/plugin-proposal-json-strings": "^7.10.1",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-syntax-import-meta": "^7.10.1",
     "@babel/preset-env": "^7.10.1",
     "@mdi/font": "^5.3.45",
     "@vue/cli-plugin-babel": "~4.4.0",
@@ -23,20 +30,31 @@
     "@vue/cli-service": "~4.4.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
+    "base-href-webpack-plugin": "^2.0.0",
     "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^6.0.1",
+    "cross-env": "^7.0.2",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "file-loader": "^6.0.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^4.3.0",
     "material-design-icons-iconfont": "^5.0.1",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "sass-loader": "^8.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "vue-loader": "^15.9.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-merge": "^4.2.2"
   },
   "eslintConfig": {
     "root": true,
