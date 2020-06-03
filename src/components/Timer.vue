@@ -7,19 +7,19 @@
     <div  :class="changeTimerClass" class="timer__time">{{ time }}</div>
   </td>
   <td class="timer__colum">
-    <button class="trigger" @click="isRun = !isRun">
-      <div class="pause__btn" v-if="isRun">
+    <button class="trigger" @click="onPause(id)" >
+      <div class="pause__btn" v-if="isActive">
         <span class="mdi mdi-pause"></span>
       </div>
       <div class="run__btn" v-else>
-       <span class="mdi mdi-play"></span> 
+       <span class="mdi mdi-play"></span>
       </div>
   </button>
   </td>
   <td class="timer__colum">
     <button class="trigger del__btn" @click="onDelete(id)">
      <div class="del__btn">
-       <span class="mdi mdi-delete"></span> 
+       <span class="mdi mdi-delete"></span>
       </div>
   </button>
   </td>
@@ -31,74 +31,23 @@
 export default {
   name: 'Timer',
   props:['id','timeArray','isActive','timerName'],
-  data: () => ({
-    seconds: 0,
-    minutes:0,
-    hours:0,
-    timer: null,
-    isRun: true,
-    storage: function (id,timeArray,active = true){
-      const ls = JSON.parse(localStorage.getItem('timers'));
-      ls.forEach(el => {
-        if (el.id === id) {
-          if (timeArray.length > 0){
-            el.time = timeArray;
-          }
-            el.active = active;
-            el.currentDate = Date.now();
-        }
-      });
-      const parsed = JSON.stringify(ls);
-      localStorage.setItem('timers',parsed);
-    }
-  }),
-  mounted(){
-    [this.hours,this.minutes,this.seconds] = this.timeArray;
-    this.isRun = this.isActive;
-    this.startTimer()
-  },
   methods: {
-    startTimer(){
-    this.timer = setInterval(() => {
-      this.seconds++;
-      this.storage(this.id,[this.hours,this.minutes,this.seconds],true);
-    },1000)
-  },
   onDelete(id){
     this.$emit('removeTimer',id);
-  }
+  },
+  onPause(id){
+  this.$emit('pauseTimer',id);
+  },
   },
   computed:{
     time(){
-      return `${this.hours > 9 ? this.hours : '0'+this.hours}:${this.minutes > 9 ? this.minutes : '0'+this.minutes}:${this.seconds > 9 ? this.seconds : '0'+this.seconds }`;
+      let [hours,minutes,seconds] = this.timeArray;
+      return `${hours > 9 ? hours : '0'+hours}:${minutes > 9 ? minutes : '0'+minutes}:${seconds > 9 ? seconds : '0'+seconds }`;
     },
     changeTimerClass(){
-      return this.isRun ? 'active__timer' : 'disabled__timer';
-    }
-
-  },
-  watch:{
-  seconds(seconds){
-    if(seconds === 60){
-      this.seconds = 0;
-      this.minutes++;
+      return this.isActive ? 'active__timer' : 'disabled__timer';
     }
   },
-  minutes(minutes){
-    if(minutes === 60){
-      this.minutes = 0;
-      this.hours++;
-  }
-  },
-  isRun(isRun){
-    if(isRun){
-      this.startTimer()
-    } else {
-      clearInterval(this.timer);
-      this.storage(this.id,[],false);
-    }
-  }
-}
 }
 </script>
 

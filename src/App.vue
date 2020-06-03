@@ -3,7 +3,7 @@
     <div class="app-timer__wrapper">
       <AddNewTimer @addNewTimerName="addNewTimer" />
     <table class="timers__table">
-      <tr class="timer__item" v-for="timer in timersList" :key="timer.id"><Timer :id="timer.id" :timerName="timer.name" :timeArray="timer.time" :isActive="timer.active" @removeTimer="deleteTimer"/>
+      <tr class="timer__item" v-for="timer in timersList" :key="timer.id"><Timer :id="timer.id" :timerName="timer.name" :timeArray="timer.time" :isActive="timer.active" @removeTimer="deleteTimer" @pauseTimer="pauseTimer"/>
       </tr>
     </table>
     </div>
@@ -22,6 +22,7 @@ export default {
   },
   data: () =>({
     timersList: [],
+    mainTimer: null,
   }),
   mounted(){
     if (localStorage.getItem('timers')){
@@ -42,6 +43,7 @@ export default {
           }
         });
           this.timersList = ls;
+          this.startTimer();
       } catch(e) {
         localStorage.removeItem('timers');
       }
@@ -64,11 +66,44 @@ export default {
     }
     this.timersList.push(newTimer);
   },
+  startTimer(){
+    this.mainTimer = setInterval(()=>{
+      if (this.timersList.length > 0) {
+        this.timersList.forEach((el) => {
+          if (el.active === true) {
+            el.currentDate = Date.now();
+            let [hours,minutes,seconds] = el.time;
+            seconds++;
+             if (seconds === 60) {
+               seconds=0;
+               minutes++;
+             }
+             if (minutes === 60) {
+               minutes=0;
+               hours++;
+             }
+            this.$set(el,'time',[hours,minutes,seconds]);
+            this.$set(el,'currentDate', el.currentDate);
+          }
+        })
+      }
+    },1000);
+  },
+  pauseTimer(id){
+    this.timersList.forEach(timer => {
+      if (timer.id === id){
+        this.$set(timer,'active',!timer.active);
+      }
+    })
+  }
 },
 watch:{
-  timersList(timersList){
-    const parsed = JSON.stringify(timersList);
-    localStorage.setItem('timers', parsed);
+  timersList:{
+    deep: true,
+    handler(timersList){
+      const parsed = JSON.stringify(timersList);
+      localStorage.setItem('timers', parsed);
+    }
   }
 }
 }
