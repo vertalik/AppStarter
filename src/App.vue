@@ -6,7 +6,7 @@
       <tr class="timer__item" v-for="timer in timersList" :key="timer.id"><Timer :id="timer.id" :timerName="timer.name" :timeArray="timer.time" :isActive="timer.active" @removeTimer="deleteTimer"/>
       </tr>
     </table>
-    </div>  
+    </div>
   </div>
 </template>
 
